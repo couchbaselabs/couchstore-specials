@@ -15,7 +15,7 @@
 #   limitations under the License.
 ACLOCAL_AMFLAGS = -I m4 --force
 
-bin_PROGRAMS = couch_dbdump couch_dbinfo couch_compact couch_viewgen
+bin_PROGRAMS = couch_dbdump couch_dbinfo couch_compact couch_viewgen couch_diff
 EXTRA_DIST = python LICENSE README.md
 
 if WINDOWS
@@ -101,6 +101,11 @@ couch_dbdump_SOURCES = src/dbdump.c
 couch_dbdump_DEPENDENCIES = libcouchstore.la
 couch_dbdump_CFLAGS = $(AM_CFLAGS) -D__STDC_FORMAT_MACROS
 couch_dbdump_LDADD = libcouchstore.la libbyteswap.la -lsnappy
+
+couch_diff_SOURCES = src/diff.c
+couch_diff_DEPENDENCIES = libcouchstore.la
+couch_diff_CFLAGS = $(AM_CFLAGS) -D__STDC_FORMAT_MACROS
+couch_diff_LDADD = libcouchstore.la libbyteswap.la -lsnappy
 
 if WINDOWS
 couch_dbdump_LDADD += -lws2_32
