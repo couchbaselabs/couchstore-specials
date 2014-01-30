@@ -80,6 +80,9 @@ TARGET_LINK_LIBRARIES(couch_view_index_updater couchstore)
 ADD_EXECUTABLE(couch_view_group_compactor src/views/bin/couch_view_group_compactor.c src/views/bin/util.c)
 TARGET_LINK_LIBRARIES(couch_view_group_compactor couchstore)
 
+ADD_EXECUTABLE(couch_diff src/diff.c)
+TARGET_LINK_LIBRARIES(couch_diff couchstore)
+
 IF (INSTALL_HEADER_FILES)
    INSTALL(FILES
            include/libcouchstore/couch_db.h
