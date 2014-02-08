@@ -56,6 +56,9 @@ ADD_EXECUTABLE(couch_dbdump src/dbdump.c ${COUCHSTORE_SOURCES})
 SET_TARGET_PROPERTIES(couch_dbdump PROPERTIES COMPILE_FLAGS "-DLIBCOUCHSTORE_NO_VISIBILITY=1")
 TARGET_LINK_LIBRARIES(couch_dbdump ${COUCHSTORE_LIBRARIES})
 
+ADD_EXECUTABLE(couch_deltascan src/delta_scan.c)
+TARGET_LINK_LIBRARIES(couch_deltascan couchstore)
+
 ADD_EXECUTABLE(couch_dbinfo src/dbinfo.c)
 TARGET_LINK_LIBRARIES(couch_dbinfo couchstore)
 

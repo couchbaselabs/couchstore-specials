@@ -320,6 +320,9 @@ couchstore_error_t couchstore_rewind_db_header(Db *db)
     free(db->header.by_id_root);
     free(db->header.by_seq_root);
     free(db->header.local_docs_root);
+    db->header.by_id_root = NULL;
+    db->header.by_seq_root = NULL;
+    db->header.local_docs_root = NULL;
 
     error_unless(db->header.position != 0, COUCHSTORE_ERROR_DB_NO_LONGER_VALID);
     // find older header
