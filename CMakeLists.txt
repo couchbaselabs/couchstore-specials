@@ -50,6 +50,9 @@ TARGET_LINK_LIBRARIES(couchstore ${COUCHSTORE_LIBRARIES})
 ADD_EXECUTABLE(couch_dbdump src/dbdump.c)
 TARGET_LINK_LIBRARIES(couch_dbdump couchstore)
 
+ADD_EXECUTABLE(couch_deltascan src/delta_scan.c)
+TARGET_LINK_LIBRARIES(couch_deltascan couchstore)
+
 ADD_EXECUTABLE(couch_dbinfo src/dbinfo.c)
 TARGET_LINK_LIBRARIES(couch_dbinfo couchstore)
 
